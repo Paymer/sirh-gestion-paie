@@ -6,6 +6,9 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class PaieUtils {
 	
 	/**
@@ -16,6 +19,7 @@ public class PaieUtils {
 	* @return le nombre formaté
 	*/
 	public String formaterBigDecimal(BigDecimal decimal) {
+		
 	DecimalFormat df = new DecimalFormat();
 	// forcer le séparateur "." même sur un poste en français
 	df.setDecimalFormatSymbols(DecimalFormatSymbols.getInstance(Locale.UK));
