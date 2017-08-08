@@ -84,7 +84,10 @@ public class CalculerRemunerationServicesSimple implements CalculerRemunerationS
 	
 	private BigDecimal calculNetImposable (BulletinSalaire bulletin){
 
-		return (calculSalaireBrut(bulletin).subtract(calculTotalRetenueSalarial(bulletin)));
+		
+		BigDecimal resu = new BigDecimal(p.formaterBigDecimal(calculSalaireBrut(bulletin)));
+		BigDecimal res = new BigDecimal(p.formaterBigDecimal(calculTotalRetenueSalarial(bulletin)));
+		return resu.subtract(res);
 		
 	}
 	
