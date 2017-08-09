@@ -15,9 +15,10 @@ import dev.paie.config.JeuxDeDonnesConfig;
 import dev.paie.config.ServicesConfig;
 import dev.paie.entite.Grade;
 import dev.paie.spring.DataSourceMySQLConfig;
+import dev.paie.spring.JpaConfig;
 
 //Sélection des classes de configuration Spring à utiliser lors du test
-@ContextConfiguration(classes = { ServicesConfig.class , JeuxDeDonnesConfig.class, DataSourceMySQLConfig.class})
+@ContextConfiguration(classes = { ServicesConfig.class , JeuxDeDonnesConfig.class, DataSourceMySQLConfig.class, JpaConfig.class})
 //Configuration JUnit pour que Spring prenne la main sur le cycle de vie du test
 @RunWith(SpringRunner.class)
 
