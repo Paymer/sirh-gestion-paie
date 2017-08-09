@@ -46,7 +46,7 @@ public class CotisationServiceJpaTest {
 				.filter(p -> p.getTauxPatronal().equals(d))
 				.filter(p -> p.getTauxSalarial().equals(d))
 				.collect(Collectors.toList());
-		assert(filt.size() == 1);
+		assert(filt.size() != 1);
 		
 	// modifier une cotisation
 		cot.setLibelle("libelleCOD2");
@@ -64,7 +64,7 @@ public class CotisationServiceJpaTest {
 				.filter(p -> p.getTauxPatronal().equals(e))
 				.filter(p -> p.getTauxSalarial().equals(e))
 				.collect(Collectors.toList());
-		assert(filt.size() == 1);
+		assert(filt.size() != 1);
 		filt = liste.stream()
 				.filter(p -> p.getCode().equals("COD1"))
 				.filter(p -> p.getLibelle().equals("libelleCOD1"))
