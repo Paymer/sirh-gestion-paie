@@ -101,6 +101,34 @@
 				<version>1.11.3.RELEASE</version>
 			</dependency>
 			
+			<!-- Spring-MVC -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+			</dependency>
+			
+			<!-- JSP-Depend-API SERVLET -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.1.0</version>
+				<scope>provided</scope>
+			</dependency>
+			
+			<!--tag library JSTL for page JSP -->
+			<dependency>
+				<groupId>jstl</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+			</dependency>
+			
+			<!--Hibernate to support the data java 8 added to the mapping JPA-->
+			<dependency>
+   			 	<groupId>org.hibernate</groupId>
+    			<artifactId>hibernate-core</artifactId>
+    			<version>5.2.10.Final</version>
+			</dependency>
+			
 		</dependencies>
 		
 
