@@ -31,6 +31,18 @@
 </nav>
 
 	<h1>SIRH - Gestion de la paie</h1>
+	
+	<p> With the "user" credentials there will appear only the options of list for employees and for bulletin</p>
+	<li><a></span> Lister Employés</a></li>
+	<li><a></span> Lister Bulletins</a></li>
+	
+	<p>in case the "admin" credentials are used there will be show 4 options</p>
+		<li><a></span> Creer Employé</a></li>
+		<li><a></span> Lister Employés</a></li>
+		<li><a></span> Creer Bulletin</a></li>
+		<li><a></span> Lister Bulletins</a></li>
+	
+	
 </body>
 </html>
 

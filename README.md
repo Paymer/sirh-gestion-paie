@@ -9,11 +9,9 @@ RRHH Application to calculate the salary and other parameters.
 TODO:
 
  TP-01: Change the asssertions from the tests for the AssertJ assertions
- *TP-05: APPLICATION CONSOLE JPA
- TP-06:Not Finished:
- 	-Bulletin: not implemented
- 	-RemunerationEmploye: Method POST not finished
  
+ *TP-05: APPLICATION CONSOLE JPA
+
  
  *It has beeen added all the mapping JTA for the TP-06
  

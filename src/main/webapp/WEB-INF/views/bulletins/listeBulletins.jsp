@@ -53,16 +53,17 @@
         </thead>
         <tbody>
 		
-<c:forEach var="bul" items="${bulletin}">
+<c:forEach var="map" items="${map}">
 
 <tr>
-<td> ${bul.dateCreation} </td>
-<td> ${bul.periode} </td>
-<td> ${bul.remunerationEmploye.matricule} </td>
-<td> MAP ${bul.} </td>
-<td> MAP ${bul.} </td>
-<td> MAP ${bul.} </td>
-<td> Je sais pas comment faire </td>
+<td> ${map.key.dateCreation} </td>
+<td> ${map.key.periode.dateDebut} - ${map.key.periode.dateFin} </td>
+<td> ${map.key.remunerationEmploye.matricule} </td>
+<td> ${map.value.salaireBrut} </td>
+<td> ${map.value.netImposable} </td>
+<td> ${map.value.netAPayer}</td>
+<td> xxx </td>
+
 
 
 </tr>

@@ -8,7 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,10 +20,12 @@ public class BulletinSalaire {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="remunerationEmploye_id")
 	private RemunerationEmploye remunerationEmploye;
 	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="periode_id")
 	private Periode periode;
 	
 

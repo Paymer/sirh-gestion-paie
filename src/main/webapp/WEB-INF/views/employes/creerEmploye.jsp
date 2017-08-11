@@ -92,6 +92,8 @@
   <div class="col-md-4">
     <button id="singlebutton"  name="singlebutton" class="btn btn-primary">Ajouter</button>
   </div>
+  <!-- It is necessary to add this for the buttons -->
+  <sec:csrfInput/>
 </div>
 
 </fieldset>
