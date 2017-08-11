@@ -9,7 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import dev.paie.entite.Cotisation;
@@ -17,18 +19,20 @@ import dev.paie.entite.Entreprise;
 import dev.paie.entite.Grade;
 import dev.paie.entite.Periode;
 import dev.paie.entite.ProfilRemuneration;
+import dev.paie.entite.Utilisateur;
+import dev.paie.entite.Utilisateur.ROLES;
 
 @Service
 public class InitialiserDonneesServiceDev implements InitialiserDoneesService {
 
-	@PersistenceContext
-	private EntityManager em;
+	@PersistenceContext private EntityManager em;
 
 	@Override
 	@Transactional
 	public void initialiser() {
 
 		initialisePeriode();
+		initialiseUsers();
 
 		try (ClassPathXmlApplicationContext contextData = new ClassPathXmlApplicationContext(
 				"classpath:cotisations-imposables.xml", "classpath:cotisations-non-imposables.xml",
@@ -58,6 +62,35 @@ public class InitialiserDonneesServiceDev implements InitialiserDoneesService {
 
 		}
 	}
+	
+	@Autowired private PasswordEncoder passwordEncoder;
+	
+	@Transactional
+	public void initialiseUsers() {
+		
+		Utilisateur user = new Utilisateur();
+		
+
+		String passwordHashe = this.passwordEncoder.encode("user");
+		user.setEstActivf(true);
+		user.setNomUtilisateur("user");
+		user.setNomDePasse(passwordHashe);
+		user.setRole(ROLES.ROLE_UTILISATEUR);
+		
+		em.persist(user);
+		
+		Utilisateur admin = new Utilisateur();
+		passwordHashe = this.passwordEncoder.encode("admin");
+		admin.setEstActivf(true);
+		admin.setNomUtilisateur("admin");
+		admin.setNomDePasse(passwordHashe);
+		admin.setRole(ROLES.ROLE_ADMINISTRATEUR);
+
+			
+		em.persist(admin);
+
+		}
+	
 
 	@Transactional
 	public void initialiseCotisation(ClassPathXmlApplicationContext contextData) {
