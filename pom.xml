@@ -152,6 +152,23 @@
 				<artifactId>spring-security-taglibs</artifactId>
 				<version>4.2.2.RELEASE</version>
 			</dependency>
+			
+			
+			<!-- LogBack AOP-->
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>1.0.13</version>
+				<scope>runtime</scope>
+			</dependency>
+			
+			<!-- Aspect Spring AOP-->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+			</dependency>
+			
+			
 		</dependencies>
 		
 
