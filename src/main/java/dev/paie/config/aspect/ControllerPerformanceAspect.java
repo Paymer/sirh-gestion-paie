@@ -14,26 +14,27 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+
 
 import dev.paie.entite.Performance;
+import dev.paie.service.PerformanceService;
 
 @Configuration
 @Aspect
-@Service
 public class ControllerPerformanceAspect {
 	
-	private LocalDateTime init;
-	private LocalDateTime fin;
+	
 	
 			private static final Logger LOGGER = LoggerFactory.getLogger (ControllerPerformanceAspect.class);
-			@PersistenceContext private EntityManager em;
+			@Autowired private PerformanceService perfo;
 			
 			@Around("execution(* dev.paie.web.controller.*.*(..))")
-			@Transactional
 			public Object logPerf(ProceedingJoinPoint pjp) throws Throwable {
+				
+				LocalDateTime init, fin;
 				
 				init = LocalDateTime.now();
 				LOGGER.debug("Début d'exécution de la méthode " + pjp.getSignature().toString());
@@ -52,7 +53,7 @@ public class ControllerPerformanceAspect {
 				perf.setTempsExecution(periode);
 				
 				
-				em.persist(perf);
+				perfo.sauvegarder(perf);
 				
 				
 			
